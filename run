@@ -1,0 +1,12 @@
+#! /bin/sh
+#
+# Copyright (C) 2023 Garmin Ltd.
+#
+# SPDX-License-Identifier: GPL-2.0-only
+
+set -e
+
+THIS_DIR="$(realpath $(dirname "$0"))"
+export PYTHONPATH="$THIS_DIR/bitbake/lib"
+
+exec $THIS_DIR/hashserver.py "$@"
