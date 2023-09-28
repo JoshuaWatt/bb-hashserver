@@ -589,7 +589,7 @@ async def async_main(logger, address, port, database, read_only, upstream):
     backfill_queue = asyncio.Queue()
 
     logger.info("Using database %s", database)
-    engine = create_async_engine(database)
+    engine = create_async_engine(database, poolclass=NullPool)
 
     async with engine.begin() as conn:
         # Create tables
